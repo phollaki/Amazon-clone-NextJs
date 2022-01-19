@@ -19,10 +19,13 @@ function Header() {
             height={40}
           />
         </div>
-        <div className='hidden sm:flex items-center h-10 rounded-md bg-yellow-500 hover:bg-yellow-600 flex-grow cursor-pointer max-w-lg'>
+        <div className='hidden sm:flex overflow-hidden items-center h-10 rounded-md bg-yellow-500 hover:bg-yellow-600 flex-grow cursor-pointer max-w-lg'>
+          <p className='hidden bg-gray-200 h-12 md:flex items-center px-2'>
+            All
+          </p>
           <input
             type='text'
-            className='p-2 h-full w-6 flex-grow flex-shrink rounded-l-md focus:outline-none px-4'
+            className='p-2 h-full w-6 flex-grow flex-shrink focus:outline-none px-4'
           />
           <SearchIcon className='p-4 h-12' />
         </div>
@@ -43,6 +46,20 @@ function Header() {
             <p>Basket</p>
           </div>
         </div>
+      </div>
+      <div className='flex items-center space-x-3 bg-amazon_blue-light text-white p-1 pl-3 text-sm'>
+        <p className='flex items-center link flex-row'>
+          <MenuIcon className='h-5 mr-1 ' />
+          All
+        </p>
+        <p className='link'>Best Sellers</p>
+        <p className='link'>Amazon Basics</p>
+        <p className='link'>Today's Deals</p>
+        <p className='link hidden md:inline-grid'>New Releases</p>
+        <p className='link hidden md:inline-grid'>Customer Service</p>
+        <p className='link hidden md:inline-grid'>Books</p>
+        <p className='link hidden md:inline-grid'>PC & Video Games</p>
+        <p className='link hidden md:inline-grid'>Gift Ideas</p>
       </div>
     </header>
   );

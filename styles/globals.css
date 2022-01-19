@@ -6,4 +6,7 @@
   .link {
     @apply cursor-pointer border-[1px] border-transparent hover:border-white flex flex-col items-center p-1;
   }
+  .button {
+    @apply bg-gradient-to-b from-yellow-200 to-yellow-400 border-2 cursor-pointer border-yellow-300 p-1 text-black focus:outline-none active:from-yellow-500;
+  }
 }
