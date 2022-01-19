@@ -6,17 +6,22 @@ import {
   ShoppingCartIcon,
 } from '@heroicons/react/outline';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { selectItems } from '../slices/basketSlice';
+import { useSelector } from 'react-redux';
 
 function Header() {
   const { data: session } = useSession();
-
-  console.log(session);
+  const router = useRouter();
+  const basket = useSelector(selectItems);
 
   return (
     <header className='sticky top-0 z-50'>
       <div className='flex items-center justify-between py-1 flex-grow bg-amazon_blue'>
         <div className='mt-2 flex items-center flex-grow sm:flex-grow-0'>
           <Image
+            onClick={() => router.push('/')}
             src='https://links.papareact.com/f90'
             objectFit='contain'
             className='cursor-pointer'
@@ -43,13 +48,15 @@ function Header() {
             <p>Returns</p>
             <p>& Orders</p>
           </div>
-          <div className='relative link hidden sm:inline-grid'>
-            <p className='bg-yellow-500 px-[4px] rounded-full text-amazon_blue absolute top-0 right-2 text-xs font-bold'>
-              0
-            </p>
-            <ShoppingCartIcon className='text-white h-8' />
-            <p>Basket</p>
-          </div>
+          <Link href='/checkout'>
+            <div className='relative link hidden sm:inline-grid'>
+              <p className='bg-yellow-500 px-[4px] rounded-full text-amazon_blue absolute top-0 right-2 text-xs font-bold'>
+                {basket?.length || 0}
+              </p>
+              <ShoppingCartIcon className='text-white h-8' />
+              <p>Basket</p>
+            </div>
+          </Link>
         </div>
       </div>
       <div className='flex items-center space-x-3 bg-amazon_blue-light text-white p-1 pl-3 text-sm'>
