@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .link {
+    @apply cursor-pointer border-[1px] border-transparent hover:border-white flex flex-col items-center p-1;
+  }
+}
