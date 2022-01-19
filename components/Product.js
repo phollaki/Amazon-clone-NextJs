@@ -30,7 +30,7 @@ function Product({ id, title, description, rating, category, image, price }) {
         {Array(ratings)
           .fill()
           .map((_, i) => (
-            <StarIcon className='h-5 text-yellow-500' />
+            <StarIcon key={i} className='h-5 text-yellow-500' />
           ))}
       </div>
 
